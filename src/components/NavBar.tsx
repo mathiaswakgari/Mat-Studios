@@ -2,6 +2,7 @@ import { Box, HStack, Image } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
 import logo from "../assets/logos/logo-no-background.svg";
 import color from "../color";
+import SearchBar from "./SearchBar";
 
 const NavBar = () => {
   return (
@@ -30,6 +31,7 @@ const NavBar = () => {
       <Box>
         <Image boxSize={"200px"} src={logo} objectFit={"fill"} />
       </Box>
+      <SearchBar />
     </HStack>
   );
 };
