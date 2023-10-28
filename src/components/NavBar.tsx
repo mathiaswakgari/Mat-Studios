@@ -5,12 +5,16 @@ import color from "../color";
 import SearchBar from "./SearchBar";
 import ProfileMenu from "./ProfileMenu";
 
-const NavBar = () => {
+interface Props {
+  onToggle: () => void;
+}
+
+const NavBar = ({ onToggle }: Props) => {
   return (
     <HStack
       height={"55px"}
       width={"full"}
-      paddingX={2}
+      paddingX={5}
       borderBottom="1px"
       borderBottomColor={color.iconColor}
       position={"fixed"}
@@ -28,6 +32,7 @@ const NavBar = () => {
             backgroundColor: color.baseColor,
             transitionDuration: "400ms",
           }}
+          onClick={onToggle}
         >
           <AiOutlineMenu color={color.businessNameColor} fontSize={"25px"} />
         </Box>

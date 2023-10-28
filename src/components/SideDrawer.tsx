@@ -31,6 +31,11 @@ import { MdOutlineTheaterComedy } from "react-icons/md";
 import { IoIosFitness } from "react-icons/io";
 import color from "../color";
 
+interface Props {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
 const categories = [
   {
     name: "New",
@@ -111,8 +116,7 @@ const categories = [
   },
 ];
 
-const SideDrawer = () => {
-  const { isOpen, onClose } = useDisclosure();
+const SideDrawer = ({ isOpen, onClose }: Props) => {
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
@@ -130,6 +134,7 @@ const SideDrawer = () => {
                 backgroundColor: color.baseColor,
                 transitionDuration: "400ms",
               }}
+              onClick={onClose}
             >
               <AiOutlineMenu
                 color={color.businessNameColor}
