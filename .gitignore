@@ -12,7 +12,7 @@ raw
 dist
 dist-ssr
 *.local
-color.ts
+
 
 # Editor directories and files
 .vscode/*
