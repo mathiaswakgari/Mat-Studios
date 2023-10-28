@@ -7,12 +7,12 @@ import {
   DrawerHeader,
   DrawerOverlay,
   HStack,
-  Text,
 } from "@chakra-ui/react";
 import logo from "../assets/logos/logo-no-background.svg";
 import { AiOutlineMenu } from "react-icons/ai";
 import color from "../color";
 import categories from "../utils/categories";
+import SideDrawerMenu from "./SideDrawerMenu";
 
 interface Props {
   isOpen: boolean;
@@ -52,25 +52,7 @@ const SideDrawer = ({ isOpen, onClose }: Props) => {
 
         <DrawerBody>
           {categories.map((c) => (
-            <>
-              <HStack
-                key={c.name}
-                _hover={{
-                  backgroundColor: color.baseColor,
-                  transitionDuration: "400ms",
-                }}
-                cursor={"pointer"}
-                bg={""}
-                paddingY={1}
-                paddingLeft={2}
-                borderRadius={"full"}
-                marginY={5}
-              >
-                {c.icon}
-                <Text color={color.textColor}>{c.name}</Text>
-              </HStack>
-              <hr></hr>
-            </>
+            <SideDrawerMenu catergory={c} />
           ))}
         </DrawerBody>
       </DrawerContent>
