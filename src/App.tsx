@@ -32,6 +32,8 @@ function App() {
           marginTop={"55px"}
           area={"main"}
           bg={"red.50"}
+          height={"calc(100vh - 55px)"}
+          overflowY={"scroll"}
           paddingY={5}
           paddingX={5}
         >
