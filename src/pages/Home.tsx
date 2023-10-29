@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import VideoCard from "../components/VideoCard";
 import VideosGrid from "../components/VideosGrid";
+import api_client from "../services/api_client";
 
 interface FetchVideos {
   items: Video[];
@@ -45,16 +45,12 @@ export interface Video {
 const Home = () => {
   const [videos, setVideos] = useState<Video[]>([]);
   useEffect(() => {
-    axios
-      .get<FetchVideos>("https://youtube-v31.p.rapidapi.com/search", {
+    api_client
+      .get("search", {
         params: {
           part: "id,snippet",
           type: "video",
           maxResults: "50",
-        },
-        headers: {
-          "X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
-          "X-RapidAPI-Host": "youtube-v31.p.rapidapi.com",
         },
       })
       .then((res) => setVideos(res.data?.items));
