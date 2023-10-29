@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 
 import color from "../color";
-import { Video } from "../pages/Home";
+import { Video } from "../hooks/useVideos";
 import moment from "moment";
 
 interface Props {

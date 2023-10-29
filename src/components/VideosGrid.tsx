@@ -1,5 +1,5 @@
 import { SimpleGrid } from "@chakra-ui/react";
-import { Video } from "../pages/Home";
+import { Video } from "../hooks/useVideos";
 import VideoCard from "./VideoCard";
 
 interface Props {
