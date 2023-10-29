@@ -36,6 +36,9 @@ function App() {
           overflowY={"scroll"}
           paddingY={5}
           paddingX={5}
+          display={"flex"}
+          flexDirection={"column"}
+          alignItems={"center"}
         >
           <Outlet />
         </GridItem>

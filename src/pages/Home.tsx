@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import VideoCard from "../components/VideoCard";
+import VideosGrid from "../components/VideosGrid";
 
 interface FetchVideos {
   items: Video[];
@@ -59,7 +60,7 @@ const Home = () => {
       .then((res) => setVideos(res.data?.items));
   }, []);
 
-  if (videos) return videos.map((video) => <VideoCard video={video} />);
+  if (videos) return <VideosGrid videos={videos} />;
 
   return <div>Home</div>;
 };
