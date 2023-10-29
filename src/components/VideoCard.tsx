@@ -1,15 +1,13 @@
 import {
   Card,
-  Avatar,
   Text,
   CardBody,
   Image,
   HStack,
   VStack,
-  Button,
   Badge,
 } from "@chakra-ui/react";
-import { CgMediaLive } from "react-icons/cg";
+
 import color from "../color";
 import { Video } from "../pages/Home";
 import moment from "moment";
@@ -19,7 +17,6 @@ interface Props {
 }
 
 const VideoCard = ({ video }: Props) => {
-  console.log(video);
   return (
     <Card
       maxW="xs"
@@ -41,12 +38,6 @@ const VideoCard = ({ video }: Props) => {
       />
       <CardBody>
         <HStack>
-          <Avatar
-            name="Segun Adebayo"
-            size={"sm"}
-            src="https://bit.ly/sage-adebayo"
-            alignSelf={"start"}
-          />
           <VStack gap={0}>
             <Text lineHeight={"4"} noOfLines={2}>
               {video.snippet.title}
