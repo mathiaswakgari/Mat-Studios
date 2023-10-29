@@ -6,16 +6,20 @@ import {
   Image,
   HStack,
   VStack,
+  Button,
+  Badge,
 } from "@chakra-ui/react";
-
+import { CgMediaLive } from "react-icons/cg";
 import color from "../color";
 import { Video } from "../pages/Home";
+import moment from "moment";
 
 interface Props {
   video: Video;
 }
 
 const VideoCard = ({ video }: Props) => {
+  console.log(video);
   return (
     <Card
       maxW="xs"
@@ -52,7 +56,16 @@ const VideoCard = ({ video }: Props) => {
             </Text>
             <Text noOfLines={1} alignSelf={"start"}>
               # of Views
+              {video.snippet.liveBroadcastContent! !== "live" &&
+                " . " +
+                  moment(Date.now()).diff(video.snippet.publishTime, "days") +
+                  " days"}
             </Text>
+            {video.snippet.liveBroadcastContent === "live" && (
+              <Badge borderRadius={"sm"} alignSelf={"start"} colorScheme="red">
+                Live
+              </Badge>
+            )}
           </VStack>
         </HStack>
       </CardBody>
