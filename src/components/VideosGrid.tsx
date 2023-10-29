@@ -12,9 +12,8 @@ const VideosGrid = ({ videos }: Props) => {
       columns={{
         base: 1,
         sm: 2,
-        md: 3,
-        lg: 4,
-        xl: 5,
+        lg: 3,
+        xl: 4,
       }}
       columnGap={9}
     >

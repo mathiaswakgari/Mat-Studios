@@ -25,6 +25,7 @@ const VideoCard = ({ video }: Props) => {
     >
       <Image
         borderRadius={"2xl"}
+        height={video.snippet.thumbnails?.medium?.height}
         objectFit="cover"
         src={video.snippet.thumbnails?.medium?.url}
         alt="Chakra UI"

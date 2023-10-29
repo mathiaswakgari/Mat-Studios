@@ -24,18 +24,18 @@ export interface Video {
     thumbnails?: {
       default?: {
         url: "string";
-        width: number;
-        height: number;
+        width: 120;
+        height: 90;
       };
       high?: {
         url: "string";
-        width: number;
-        height: number;
+        width: 480;
+        height: 360;
       };
       medium?: {
         url: "string";
-        width: number;
-        height: number;
+        width: 320;
+        height: 180;
       };
     };
     title: string;
