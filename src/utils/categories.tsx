@@ -20,7 +20,7 @@ import color from "../color";
 
 const categories = [
   {
-    name: "New",
+    name: "Home",
     icon: <AiOutlineHome color={color.businessNameColor} fontSize={"30px"} />,
   },
   {
