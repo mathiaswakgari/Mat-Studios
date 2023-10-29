@@ -1,12 +1,14 @@
-import { SimpleGrid } from "@chakra-ui/react";
-import { Video } from "../hooks/useVideos";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import VideoCard from "./VideoCard";
+import useVideos from "../hooks/useVideos";
+import React from "react";
 
-interface Props {
-  videos: Video[];
-}
+const VideosGrid = () => {
+  const { data, isError, isLoading, isFetching } = useVideos();
 
-const VideosGrid = ({ videos }: Props) => {
+  if (isError) return <Text>Error</Text>;
+  if (isFetching) return <Text>Laoding..</Text>;
+
   return (
     <SimpleGrid
       columns={{
@@ -17,8 +19,12 @@ const VideosGrid = ({ videos }: Props) => {
       }}
       columnGap={9}
     >
-      {videos.map((video) => (
-        <VideoCard video={video} />
+      {data?.pages.map((page) => (
+        <React.Fragment>
+          {page.data.items.map((video) => (
+            <VideoCard video={video} />
+          ))}
+        </React.Fragment>
       ))}
     </SimpleGrid>
   );

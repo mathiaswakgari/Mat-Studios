@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import api_client from "../services/api_client";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 interface FetchVideos {
   items: Video[];
@@ -41,21 +41,19 @@ export interface Video {
 }
 
 const useVideos = () => {
-  const [videos, setVideos] = useState<Video[]>([]);
-  useEffect(() => {
-    api_client
-      .get<FetchVideos>("search", {
+  return useInfiniteQuery({
+    queryKey: ["videos"],
+    queryFn: () => {
+      return api_client.get<FetchVideos>("search", {
         params: {
-          part: "id,snippet",
-          type: "video",
+          part: "snippet,id",
+          regionCode: "US",
           maxResults: "50",
         },
-      })
-      .then((res) => {
-        setVideos(res.data?.items);
       });
-  }, []);
-
-  return { videos };
+    },
+    getNextPageParam: (lastPage, pages) => pages.length + 1,
+    initialPageParam: undefined,
+  });
 };
 export default useVideos;
