@@ -24,6 +24,11 @@ const VideoCard = ({ video }: Props) => {
       shadow={"none"}
     >
       <Image
+        cursor={"pointer"}
+        _hover={{
+          borderRadius: "0",
+          transitionDuration: "500ms",
+        }}
         borderRadius={"2xl"}
         height={video.snippet.thumbnails?.medium?.height}
         objectFit="cover"

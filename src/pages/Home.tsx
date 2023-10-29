@@ -46,14 +46,16 @@ const Home = () => {
   const [videos, setVideos] = useState<Video[]>([]);
   useEffect(() => {
     api_client
-      .get("search", {
+      .get<FetchVideos>("search", {
         params: {
           part: "id,snippet",
           type: "video",
           maxResults: "50",
         },
       })
-      .then((res) => setVideos(res.data?.items));
+      .then((res) => {
+        setVideos(res.data?.items);
+      });
   }, []);
 
   if (videos) return <VideosGrid videos={videos} />;
