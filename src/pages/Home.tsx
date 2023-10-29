@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import VideoCard from "../components/VideoCard";
 
 interface FetchVideos {
   items: Video[];
@@ -7,7 +8,7 @@ interface FetchVideos {
     totalResults: number;
   };
 }
-interface Video {
+export interface Video {
   id: {
     kind: "youtube#video";
     videoId: string;
@@ -57,6 +58,9 @@ const Home = () => {
       })
       .then((res) => setVideos(res.data?.items));
   }, []);
+
+  if (videos) return videos.map((video) => <VideoCard video={video} />);
+
   return <div>Home</div>;
 };
 

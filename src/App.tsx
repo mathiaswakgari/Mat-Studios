@@ -28,7 +28,13 @@ function App() {
             <SideBar />
           </Box>
         </GridItem>
-        <GridItem marginTop={"55px"} area={"main"} bg={"red.50"}>
+        <GridItem
+          marginTop={"55px"}
+          area={"main"}
+          bg={"red.50"}
+          paddingY={5}
+          paddingX={5}
+        >
           <Outlet />
         </GridItem>
       </Grid>
