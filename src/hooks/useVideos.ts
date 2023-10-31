@@ -38,6 +38,12 @@ export interface Video {
     };
     title: string;
   };
+  statistics?: {
+    viewCount: string;
+    likeCount: string;
+    favoriteCount: string;
+    commentCount: string;
+  };
 }
 
 const useVideos = () => {
