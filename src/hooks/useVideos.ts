@@ -52,6 +52,7 @@ const useVideos = () => {
         },
       });
     },
+    refetchOnWindowFocus: false,
     getNextPageParam: (lastPage, pages) => pages.length + 1,
     initialPageParam: undefined,
   });
