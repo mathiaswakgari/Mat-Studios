@@ -6,6 +6,7 @@ import {
   HStack,
   VStack,
   Badge,
+  AspectRatio,
 } from "@chakra-ui/react";
 
 import color from "../color";
@@ -19,23 +20,24 @@ interface Props {
 const VideoCard = ({ video }: Props) => {
   return (
     <Card
-      maxW="xs"
+      maxW={"xs"}
       borderTopRadius={"2xl"}
       background={"transparent"}
       shadow={"none"}
     >
-      <Image
-        cursor={"pointer"}
-        _hover={{
-          borderRadius: "0",
-          transitionDuration: "500ms",
-        }}
-        borderRadius={"2xl"}
-        height={video.snippet.thumbnails?.medium?.height}
-        objectFit="cover"
-        src={video.snippet.thumbnails?.medium?.url}
-        alt="Chakra UI"
-      />
+      <AspectRatio maxW={320} ratio={16 / 9}>
+        <Image
+          cursor={"pointer"}
+          _hover={{
+            borderRadius: "0",
+            transitionDuration: "500ms",
+          }}
+          borderRadius={"2xl"}
+          objectFit="cover"
+          src={video.snippet.thumbnails?.medium?.url}
+          alt="Chakra UI"
+        />
+      </AspectRatio>
       <CardBody>
         <HStack>
           <VStack gap={0}>
