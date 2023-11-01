@@ -1,5 +1,4 @@
 import { Box, Button, Text } from "@chakra-ui/react";
-import React from "react";
 import color from "../color";
 import millify from "millify";
 import moment from "moment";

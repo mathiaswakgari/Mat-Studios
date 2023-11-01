@@ -1,4 +1,4 @@
-import { Avatar, HStack, VStack, Text, Button, Box } from "@chakra-ui/react";
+import { Avatar, HStack, VStack, Text, Button } from "@chakra-ui/react";
 import millify from "millify";
 import color from "../color";
 import { SlUserFollow } from "react-icons/sl";
@@ -18,7 +18,7 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
           <Text lineHeight={1} fontSize={"lg"} fontWeight={"bold"}>
             {channelTitle}
           </Text>
-          <Text fontSize={"sm"} color={color.textColor}>
+          <Text fontSize={"sm"} noOfLines={1} color={color.textColor}>
             {millify(parseInt(subscribers))} Subscribers
           </Text>
         </VStack>
