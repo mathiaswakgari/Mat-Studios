@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import api_client from "../services/api_client";
-
 import { Video } from "../hooks/useVideos";
 import VideoPlayer from "../components/VideoPlayer";
-import { Avatar, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
+import VideoInfo from "../components/VideoInfo";
 
 interface FetchVideo {
   items: Video[];
@@ -28,6 +28,10 @@ interface Channel {
     };
     title: string;
   };
+  statistics: {
+    subscriberCount: string;
+    videoCount: string;
+  };
 }
 
 const VideoPage = () => {
@@ -42,7 +46,7 @@ const VideoPage = () => {
         },
       }),
   });
-  const { data: channel } = useQuery({
+  const { data: channelData } = useQuery({
     queryKey: ["channels", data?.data.items[0].snippet.channelId],
     queryFn: () =>
       api_client.get<FetchVChannel>("channels", {
@@ -53,13 +57,26 @@ const VideoPage = () => {
       }),
   });
 
-  console.log(channel);
+  const channel = channelData?.data?.items[0];
 
   const video = data?.data.items[0];
 
   return (
     <VStack w={"100%"}>
       <VideoPlayer id={id!} />
+      <Text
+        fontWeight={"semibold"}
+        fontSize={"3xl"}
+        noOfLines={1}
+        alignSelf={"start"}
+      >
+        {video?.snippet.title}
+      </Text>
+      <VideoInfo
+        channelTitle={channel?.snippet.title!}
+        subscribers={channel?.statistics.subscriberCount!}
+        channelUrl={channel?.snippet.thumbnails.medium.url!}
+      />
     </VStack>
   );
 };
