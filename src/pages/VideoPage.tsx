@@ -3,8 +3,13 @@ import { useParams } from "react-router-dom";
 import api_client from "../services/api_client";
 import { Video } from "../hooks/useVideos";
 import VideoPlayer from "../components/VideoPlayer";
-import { Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import VideoInfo from "../components/VideoInfo";
+import moment from "moment";
+import color from "../color";
+import millify from "millify";
+import { useState } from "react";
+import VideoDescription from "../components/VideoDescription";
 
 interface FetchVideo {
   items: Video[];
@@ -36,6 +41,7 @@ interface Channel {
 
 const VideoPage = () => {
   const { id } = useParams();
+  const [loadMore, setLoadMore] = useState(false);
   const { data } = useQuery({
     queryKey: ["videos", id],
     queryFn: () =>
@@ -76,6 +82,11 @@ const VideoPage = () => {
         channelTitle={channel?.snippet.title!}
         subscribers={channel?.statistics.subscriberCount!}
         channelUrl={channel?.snippet.thumbnails.medium.url!}
+      />
+      <VideoDescription
+        onClick={() => setLoadMore(!loadMore)}
+        loadMore={loadMore}
+        video={video!}
       />
     </VStack>
   );
