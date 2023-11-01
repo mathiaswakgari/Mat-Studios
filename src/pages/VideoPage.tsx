@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import api_client from "../services/api_client";
 
 import { Video } from "../hooks/useVideos";
+import VideoPlayer from "../components/VideoPlayer";
 
 interface FetchVideo {
   items: Video[];
@@ -20,8 +21,8 @@ const VideoPage = () => {
         },
       }),
   });
-  console.log(data);
-  return <div>{id}</div>;
+
+  return <VideoPlayer id={id!} />;
 };
 
 export default VideoPage;
