@@ -1,7 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import api_client from "../services/api_client";
-import { Video } from "../hooks/useVideos";
+
 import VideoPlayer from "../components/VideoPlayer";
 import { Text, VStack } from "@chakra-ui/react";
 import VideoInfo from "../components/VideoInfo";
@@ -12,48 +10,18 @@ import VideoDescription from "../components/VideoDescription";
 import Comments from "../components/Comments";
 import useVideo from "../hooks/useVideo";
 import useChannel from "../hooks/useChannel";
-
-interface FetchComments {
-  items: Comment[];
-}
-
-export interface Comment {
-  id: string;
-  snippet: {
-    topLevelComment: {
-      snippet: {
-        authorChannelId: { value: string };
-        authorDisplayName: string;
-        authorProfileImageUrl: string;
-        channelId: string;
-        publishedAt: string;
-        textDisplay: string;
-        likeCount: number;
-      };
-    };
-  };
-}
+import useComments from "../hooks/useComments";
 
 const VideoPage = () => {
   const { id } = useParams();
   const [loadMore, setLoadMore] = useState(false);
+
   const { data: videoData, isLoading } = useVideo(id!);
   const { data: channelData } = useChannel(
     videoData?.data.items![0]?.snippet?.channelId!
   );
 
-  const { data: commentsData } = useQuery({
-    queryKey: ["comments", videoData?.data.items![0].id.videoId],
-    queryFn: () =>
-      api_client.get<FetchComments>("commentThreads", {
-        params: {
-          part: "snippet",
-          videoId: id,
-          maxResults: "100",
-        },
-      }),
-  });
-
+  const { data: commentsData } = useComments(id!);
   if (isLoading) return <Text>Loading....</Text>;
 
   const channel = channelData?.data;

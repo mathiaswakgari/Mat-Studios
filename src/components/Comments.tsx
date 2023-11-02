@@ -1,7 +1,7 @@
 import { VStack, Text } from "@chakra-ui/react";
 import CommentCard from "./CommentCard";
 import millify from "millify";
-import { Comment } from "../pages/VideoPage";
+import { Comment } from "../hooks/useComments";
 
 interface Props {
   commentCount: string;

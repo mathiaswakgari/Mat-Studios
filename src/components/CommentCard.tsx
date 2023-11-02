@@ -1,7 +1,7 @@
 import { Avatar, HStack, Text, VStack } from "@chakra-ui/react";
 import color from "../color";
 import { BiDislike, BiLike } from "react-icons/bi";
-import { Comment } from "../pages/VideoPage";
+import { Comment } from "../hooks/useComments";
 import moment from "moment";
 
 interface Props {
