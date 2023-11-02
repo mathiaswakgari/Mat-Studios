@@ -10,10 +10,8 @@ import { useState } from "react";
 import VideoDescription from "../components/VideoDescription";
 
 import Comments from "../components/Comments";
+import useVideo from "../hooks/useVideo";
 
-interface FetchVideo {
-  items?: Video[];
-}
 interface FetchVChannel {
   items: Channel[];
 }
@@ -62,28 +60,20 @@ interface Channel {
 const VideoPage = () => {
   const { id } = useParams();
   const [loadMore, setLoadMore] = useState(false);
-  const { data, isLoading } = useQuery({
-    queryKey: ["videos", id],
-    queryFn: () =>
-      api_client.get<FetchVideo>("videos", {
-        params: {
-          part: "contentDetails,snippet,statistics",
-          id: id,
-        },
-      }),
-  });
+  const { data: videoData, isLoading } = useVideo(id!);
+
   const { data: channelData } = useQuery({
-    queryKey: ["channels", data?.data?.items![0].snippet?.channelId!],
+    queryKey: ["channels", videoData?.data?.items![0].snippet?.channelId!],
     queryFn: () =>
       api_client.get<FetchVChannel>("channels", {
         params: {
           part: "snippet,statistics",
-          id: data?.data?.items![0]?.snippet?.channelId!,
+          id: videoData?.data?.items![0]?.snippet?.channelId!,
         },
       }),
   });
   const { data: commentsData } = useQuery({
-    queryKey: ["comments", data?.data.items![0].id.videoId],
+    queryKey: ["comments", videoData?.data.items![0].id.videoId],
     queryFn: () =>
       api_client.get<FetchComments>("commentThreads", {
         params: {
@@ -97,7 +87,7 @@ const VideoPage = () => {
   if (isLoading) return <Text>Loading....</Text>;
 
   const channel = channelData?.data;
-  const video = data?.data.items![0]!;
+  const video = videoData?.data.items![0]!;
 
   return (
     <VStack w={"100%"}>
