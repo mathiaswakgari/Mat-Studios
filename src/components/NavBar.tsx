@@ -7,9 +7,10 @@ import ProfileMenu from "./ProfileMenu";
 
 interface Props {
   onToggle: () => void;
+  onSearch: (searchTerm: string) => void;
 }
 
-const NavBar = ({ onToggle }: Props) => {
+const NavBar = ({ onToggle, onSearch }: Props) => {
   return (
     <HStack
       height={"55px"}
@@ -39,7 +40,7 @@ const NavBar = ({ onToggle }: Props) => {
           <Image boxSize={"200px"} src={logo} objectFit={"fill"} />
         </Box>
       </HStack>
-      <SearchBar />
+      <SearchBar onSearch={onSearch} />
       <ProfileMenu />
     </HStack>
   );

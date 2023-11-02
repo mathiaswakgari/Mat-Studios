@@ -9,6 +9,7 @@ import color from "./color";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       <Grid
@@ -22,7 +23,10 @@ function App() {
         bg={color.bgColor}
       >
         <GridItem area={"navbar"}>
-          <NavBar onToggle={() => setIsOpen(true)} />
+          <NavBar
+            onSearch={(searchTerm) => setSearchTerm(searchTerm)}
+            onToggle={() => setIsOpen(true)}
+          />
         </GridItem>
         <GridItem marginTop={"55px"} area={"sidebar"}>
           <SideDrawer onClose={() => setIsOpen(false)} isOpen={isOpen} />
