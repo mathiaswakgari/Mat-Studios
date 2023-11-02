@@ -27,12 +27,17 @@ const VideoDescription = ({ onClick, video, loadMore }: Props) => {
       paddingX={2}
       color={color.textColor}
     >
-      <Text noOfLines={1} alignSelf={"start"} color={color.textTwoColor}>
+      <Text
+        fontSize={"md"}
+        noOfLines={1}
+        alignSelf={"start"}
+        color={color.textTwoColor}
+      >
         {`${millify(parseInt(video?.statistics?.viewCount!))} views`}
         {video?.snippet.liveBroadcastContent! !== "live" &&
           " . " + moment(video?.snippet?.publishedAt, "YYYYMMDD").fromNow()}
       </Text>
-      <Text>
+      <Text fontSize={"sm"}>
         {loadMore ? video?.snippet?.description : lessDescription}
         {video?.snippet?.description?.length! >= 500 && (
           <Button

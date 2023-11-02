@@ -39,7 +39,7 @@ const VideoPage = () => {
       >
         <Text
           fontWeight={"semibold"}
-          fontSize={"2xl"}
+          fontSize={"xl"}
           noOfLines={1}
           alignSelf={"start"}
           color={color.textColor}

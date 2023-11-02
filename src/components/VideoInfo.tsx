@@ -17,7 +17,7 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
         <VStack lineHeight={1} alignItems={"start"}>
           <Text
             lineHeight={1}
-            fontSize={"lg"}
+            fontSize={"md"}
             color={color.textColor}
             fontWeight={"bold"}
           >
@@ -32,6 +32,7 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
           // isDisabled
           borderRadius={"3xl"}
           colorScheme="red"
+          size={"sm"}
           rightIcon={<SlUserFollow />}
         >
           Subscribe
@@ -48,14 +49,14 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
       >
         <BiDislike
           style={{
-            fontSize: "25px",
+            fontSize: "20px",
             color: color.textColor,
           }}
         />
         <Text color={color.textColor}>|</Text>
         <BiLike
           style={{
-            fontSize: "25px",
+            fontSize: "20px",
             color: color.textColor,
           }}
         />

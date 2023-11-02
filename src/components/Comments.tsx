@@ -13,7 +13,7 @@ const Comments = ({ commentCount, comments }: Props) => {
   return (
     <>
       <VStack alignSelf={"start"} color={color.textColor}>
-        <Text fontWeight={"bold"} fontSize={"xl"}>
+        <Text fontWeight={"bold"} fontSize={"lg"}>
           {`${millify(parseInt(commentCount!))} Comments`}{" "}
         </Text>
       </VStack>

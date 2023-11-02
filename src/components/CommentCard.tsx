@@ -28,20 +28,24 @@ const CommentCard = ({ comment }: Props) => {
       <Avatar src={authorProfileImageUrl} size={"sm"} />
       <VStack>
         <HStack alignSelf={"start"}>
-          <Text fontWeight={"medium"}>@{authorDisplayName}</Text>
-          <Text color={color.textTwoColor}>
+          <Text fontWeight={"medium"} fontSize={"sm"}>
+            @{authorDisplayName}
+          </Text>
+          <Text fontSize={"sm"} color={color.textTwoColor}>
             {moment(publishedAt, "YYYYMMDD").fromNow()}
           </Text>
         </HStack>
-        <Text marginLeft={1} alignSelf={"start"}>
+        <Text marginLeft={1} fontSize={"sm"} alignSelf={"start"}>
           {textDisplay}
         </Text>
         <HStack alignSelf={"start"} justifyContent={"space-around"} w={"80px"}>
           <HStack>
-            <BiLike fontSize="22px" color="gray" />
-            <Text color={color.textTwoColor}>{likeCount}</Text>
+            <BiLike fontSize="18px" color="gray" />
+            <Text fontSize={"sm"} color={color.textTwoColor}>
+              {likeCount}
+            </Text>
           </HStack>
-          <BiDislike fontSize="22px" color="gray" />
+          <BiDislike fontSize="18px" color="gray" />
         </HStack>
       </VStack>
     </HStack>
