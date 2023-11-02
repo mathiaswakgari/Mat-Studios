@@ -15,6 +15,10 @@ const VideoPlayer = ({ id }: Props) => {
           width={"100%"}
           height={"100%"}
           playing
+          style={{
+            overflow: "hidden",
+            borderRadius: "20px",
+          }}
         />
       </AspectRatio>
     </VStack>
