@@ -11,10 +11,7 @@ import VideoDescription from "../components/VideoDescription";
 
 import Comments from "../components/Comments";
 import useVideo from "../hooks/useVideo";
-
-interface FetchVChannel {
-  items: Channel[];
-}
+import useChannel from "../hooks/useChannel";
 
 interface FetchComments {
   items: Comment[];
@@ -36,42 +33,15 @@ export interface Comment {
     };
   };
 }
-interface Channel {
-  snippet: {
-    thumbnails: {
-      default: {
-        url: string;
-      };
-      high: {
-        url: string;
-      };
-      medium: {
-        url: string;
-      };
-    };
-    title?: string;
-  };
-  statistics: {
-    subscriberCount: string;
-    videoCount: string;
-  };
-}
 
 const VideoPage = () => {
   const { id } = useParams();
   const [loadMore, setLoadMore] = useState(false);
   const { data: videoData, isLoading } = useVideo(id!);
+  const { data: channelData } = useChannel(
+    videoData?.data.items![0]?.snippet?.channelId!
+  );
 
-  const { data: channelData } = useQuery({
-    queryKey: ["channels", videoData?.data?.items![0].snippet?.channelId!],
-    queryFn: () =>
-      api_client.get<FetchVChannel>("channels", {
-        params: {
-          part: "snippet,statistics",
-          id: videoData?.data?.items![0]?.snippet?.channelId!,
-        },
-      }),
-  });
   const { data: commentsData } = useQuery({
     queryKey: ["comments", videoData?.data.items![0].id.videoId],
     queryFn: () =>
