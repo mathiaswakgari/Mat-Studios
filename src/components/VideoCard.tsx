@@ -20,7 +20,7 @@ interface Props {
 
 const VideoCard = ({ video }: Props) => {
   return (
-    <Link to={`videos/${video.id.videoId}`}>
+    <Link to={`videos/${video?.id?.videoId!}`}>
       <Card
         maxW={"xs"}
         borderTopRadius={"2xl"}

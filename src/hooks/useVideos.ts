@@ -55,6 +55,7 @@ const useVideos = () => {
           part: "snippet,id",
           regionCode: "US",
           maxResults: "50",
+          type: "video",
         },
       });
     },

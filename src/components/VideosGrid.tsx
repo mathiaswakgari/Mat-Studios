@@ -9,6 +9,8 @@ const VideosGrid = () => {
   if (isError) return <Text>Error</Text>;
   if (isFetching) return <Text>Laoding..</Text>;
 
+  console.log(data?.pages[0].data.items);
+
   return (
     <SimpleGrid
       columns={{
