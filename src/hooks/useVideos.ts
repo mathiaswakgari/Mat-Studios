@@ -1,7 +1,7 @@
 import api_client from "../services/api_client";
 import { useInfiniteQuery } from "@tanstack/react-query";
 
-interface FetchVideos {
+export interface FetchVideos {
   items: Video[];
   pageInfo: {
     totalResults: number;

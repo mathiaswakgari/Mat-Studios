@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import api_client from "../services/api_client";
 
-interface FetchChannel {
+export interface FetchChannel {
   items: Channel[];
 }
 
