@@ -5,6 +5,7 @@ import SideDrawer from "./components/SideDrawer";
 import SideBar from "./components/SideBar";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
+import color from "./color";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +19,7 @@ function App() {
         templateColumns={{
           base: `80px 1fr`,
         }}
+        bg={color.bgColor}
       >
         <GridItem area={"navbar"}>
           <NavBar onToggle={() => setIsOpen(true)} />
@@ -31,7 +33,6 @@ function App() {
         <GridItem
           marginTop={"55px"}
           area={"main"}
-          bg={"red.50"}
           height={"calc(100vh - 55px)"}
           overflowY={"scroll"}
           paddingY={5}

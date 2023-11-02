@@ -8,7 +8,7 @@ import {
   DrawerOverlay,
   HStack,
 } from "@chakra-ui/react";
-import logo from "../assets/logos/logo-no-background.svg";
+import logo from "../assets/logos/matstudios-high-resolution-logo-transparent.svg";
 import { AiOutlineMenu } from "react-icons/ai";
 import color from "../color";
 import categories from "../utils/categories";
@@ -23,8 +23,8 @@ const SideDrawer = ({ isOpen, onClose }: Props) => {
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent>
-        <DrawerHeader borderBottom={"1px"} borderBottomColor={color.iconColor}>
+      <DrawerContent bg={color.bgColor}>
+        <DrawerHeader>
           <HStack height={"22px"}>
             <Box
               borderRadius={"full"}

@@ -15,17 +15,23 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
       <HStack>
         <Avatar alignSelf={"start"} size={"md"} src={channelUrl!} />
         <VStack lineHeight={1} alignItems={"start"}>
-          <Text lineHeight={1} fontSize={"lg"} fontWeight={"bold"}>
+          <Text
+            lineHeight={1}
+            fontSize={"lg"}
+            color={color.textColor}
+            fontWeight={"bold"}
+          >
             {channelTitle!}
           </Text>
-          <Text fontSize={"sm"} noOfLines={1} color={color.textColor}>
+          <Text fontSize={"sm"} noOfLines={1} color={color.textTwoColor}>
             {millify(parseInt(subscribers!))} Subscribers
           </Text>
         </VStack>
         <Button
-          isDisabled
+          marginLeft={2}
+          // isDisabled
           borderRadius={"3xl"}
-          colorScheme="teal"
+          colorScheme="red"
           rightIcon={<SlUserFollow />}
         >
           Subscribe
@@ -34,7 +40,8 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
 
       <HStack
         borderRadius={"full"}
-        bg={color.baseColor}
+        bg={"whiteAlpha.100"}
+        shadow={"2xl"}
         height={"50px"}
         width={"100px"}
         justifyContent={"space-evenly"}
@@ -42,12 +49,14 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
         <BiDislike
           style={{
             fontSize: "25px",
+            color: color.textColor,
           }}
         />
-        <Text>|</Text>
+        <Text color={color.textColor}>|</Text>
         <BiLike
           style={{
             fontSize: "25px",
+            color: color.textColor,
           }}
         />
       </HStack>

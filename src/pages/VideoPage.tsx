@@ -11,6 +11,7 @@ import Comments from "../components/Comments";
 import useVideo from "../hooks/useVideo";
 import useChannel from "../hooks/useChannel";
 import useComments from "../hooks/useComments";
+import color from "../color";
 
 const VideoPage = () => {
   const { id } = useParams();
@@ -32,9 +33,10 @@ const VideoPage = () => {
       <VideoPlayer id={id!} />
       <Text
         fontWeight={"semibold"}
-        fontSize={"3xl"}
+        fontSize={"2xl"}
         noOfLines={1}
         alignSelf={"start"}
+        color={color.textColor}
       >
         {video?.snippet.title}
       </Text>

@@ -43,13 +43,30 @@ const VideoCard = ({ video }: Props) => {
         <CardBody>
           <HStack>
             <VStack gap={0}>
-              <Text lineHeight={"4"} noOfLines={2}>
+              <Text
+                lineHeight={"5"}
+                fontSize={"lg"}
+                color={color.textColor}
+                noOfLines={2}
+              >
                 {video.snippet.title}
               </Text>
-              <Text noOfLines={1} alignSelf={"start"} color={color.textColor}>
+              <Text
+                marginTop={1}
+                noOfLines={1}
+                fontSize={"md"}
+                fontWeight={"semibold"}
+                alignSelf={"start"}
+                color={color.textTwoColor}
+              >
                 {video.snippet.channelTitle}
               </Text>
-              <Text noOfLines={1} alignSelf={"start"}>
+              <Text
+                noOfLines={1}
+                alignSelf={"start"}
+                color={color.textTwoColor}
+                fontSize={"md"}
+              >
                 # of Views
                 {video.snippet.liveBroadcastContent! !== "live" &&
                   " . " +

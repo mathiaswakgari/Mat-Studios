@@ -1,9 +1,11 @@
 const color = {
-  businessNameColor: "#096A2E",
+  businessNameColor: "#f2f2f2",
   sloganColor: "#3C3C3C",
-  iconColor: "#398378",
-  tertiaryColor: "#096A2E",
-  baseColor: "#d1e0d7",
-  textColor: "#4a6a56",
+  iconColor: "#bfbfbf",
+  baseColor: "#595959",
+  textColor: "#ffffff",
+  textTwoColor: "#bfbfbf",
+  bgColor: "#000000",
+  borderColor: "#595959",
 };
 export default color;

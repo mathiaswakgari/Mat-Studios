@@ -2,6 +2,7 @@ import { VStack, Text } from "@chakra-ui/react";
 import CommentCard from "./CommentCard";
 import millify from "millify";
 import { Comment } from "../hooks/useComments";
+import color from "../color";
 
 interface Props {
   commentCount: string;
@@ -11,7 +12,7 @@ interface Props {
 const Comments = ({ commentCount, comments }: Props) => {
   return (
     <>
-      <VStack alignSelf={"start"}>
+      <VStack alignSelf={"start"} color={color.textColor}>
         <Text fontWeight={"bold"} fontSize={"xl"}>
           {`${millify(parseInt(commentCount!))} Comments`}{" "}
         </Text>

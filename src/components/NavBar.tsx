@@ -1,6 +1,6 @@
 import { Box, HStack, Image } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
-import logo from "../assets/logos/logo-no-background.svg";
+import logo from "../assets/logos/matstudios-high-resolution-logo-transparent.svg";
 import color from "../color";
 import SearchBar from "./SearchBar";
 import ProfileMenu from "./ProfileMenu";
@@ -15,10 +15,9 @@ const NavBar = ({ onToggle }: Props) => {
       height={"55px"}
       width={"full"}
       paddingX={5}
-      borderBottom="1px"
-      borderBottomColor={color.iconColor}
       position={"fixed"}
       justifyContent={"space-between"}
+      zIndex={10}
     >
       <HStack>
         <Box

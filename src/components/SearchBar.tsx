@@ -14,11 +14,15 @@ const SearchBar = () => {
       <Input
         type="text"
         placeholder="Search..."
+        _placeholder={{
+          color: color.textTwoColor,
+        }}
         borderRadius={"full"}
-        borderColor={color.iconColor}
+        borderColor={color.borderColor}
+        color={color.textColor}
       />
       <InputRightElement pointerEvents="none">
-        <BsSearch />
+        <BsSearch color={color.textTwoColor} />
       </InputRightElement>
     </InputGroup>
   );
