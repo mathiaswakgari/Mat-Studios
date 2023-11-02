@@ -12,9 +12,8 @@ interface Props {
 
 const VideoDescription = ({ onClick, video, loadMore }: Props) => {
   const lessDescription =
-    video?.snippet?.description?.length! >= 500
-      ? video?.snippet.description.slice(0, 500)
-      : video?.snippet.description;
+    video?.snippet?.description?.length! >= 500 &&
+    video?.snippet.description.slice(0, 500) + "...";
 
   return (
     <Box
@@ -30,10 +29,12 @@ const VideoDescription = ({ onClick, video, loadMore }: Props) => {
           " . " + moment(video?.snippet?.publishedAt, "YYYYMMDD").fromNow()}
       </Text>
       <Text>
-        {loadMore ? video?.snippet?.description : lessDescription + "..."}
-        <Button size={"xs"} colorScheme={"green"} onClick={onClick}>
-          {loadMore ? "Less" : "More"}
-        </Button>
+        {loadMore ? video?.snippet?.description : lessDescription}
+        {video?.snippet?.description?.length! >= 500 && (
+          <Button size={"xs"} colorScheme={"green"} onClick={onClick}>
+            {loadMore ? "Less" : "More"}
+          </Button>
+        )}
       </Text>
     </Box>
   );
