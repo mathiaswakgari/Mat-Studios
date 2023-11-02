@@ -21,7 +21,7 @@ const VideosGrid = () => {
       }}
       columnGap={9}
     >
-      {!isFetching
+      {isFetching
         ? skeletons.map((s) => <VideoSkeleton key={s} />)
         : data?.pages.map((page) => (
             <React.Fragment>
