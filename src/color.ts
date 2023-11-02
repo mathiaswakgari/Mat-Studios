@@ -7,5 +7,7 @@ const color = {
   textTwoColor: "#bfbfbf",
   bgColor: "#000000",
   borderColor: "#595959",
+  buttonColor: "#404040",
+  buttonColorTwo: "#595959",
 };
 export default color;
