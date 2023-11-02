@@ -31,29 +31,36 @@ const VideoPage = () => {
   return (
     <VStack w={"100%"}>
       <VideoPlayer id={id!} />
-      <Text
-        fontWeight={"semibold"}
-        fontSize={"2xl"}
-        noOfLines={1}
-        alignSelf={"start"}
-        color={color.textColor}
+      <VStack
+        w={{
+          base: "100%",
+          xl: "80%",
+        }}
       >
-        {video?.snippet.title}
-      </Text>
-      <VideoInfo
-        channelTitle={channel?.items[0]?.snippet?.title!}
-        subscribers={channel?.items[0].statistics?.subscriberCount!}
-        channelUrl={channel?.items[0].snippet?.thumbnails?.medium?.url!}
-      />
-      <VideoDescription
-        onClick={() => setLoadMore(!loadMore)}
-        loadMore={loadMore}
-        video={video!}
-      />
-      <Comments
-        commentCount={video?.statistics?.commentCount!}
-        comments={commentsData?.data.items!}
-      />
+        <Text
+          fontWeight={"semibold"}
+          fontSize={"2xl"}
+          noOfLines={1}
+          alignSelf={"start"}
+          color={color.textColor}
+        >
+          {video?.snippet.title}
+        </Text>
+        <VideoInfo
+          channelTitle={channel?.items[0]?.snippet?.title!}
+          subscribers={channel?.items[0].statistics?.subscriberCount!}
+          channelUrl={channel?.items[0].snippet?.thumbnails?.medium?.url!}
+        />
+        <VideoDescription
+          onClick={() => setLoadMore(!loadMore)}
+          loadMore={loadMore}
+          video={video!}
+        />
+        <Comments
+          commentCount={video?.statistics?.commentCount!}
+          comments={commentsData?.data.items!}
+        />
+      </VStack>
     </VStack>
   );
 };
