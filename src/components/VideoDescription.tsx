@@ -27,9 +27,7 @@ const VideoDescription = ({ onClick, video, loadMore }: Props) => {
       <Text noOfLines={1} alignSelf={"start"}>
         {`${millify(parseInt(video?.statistics?.viewCount!))} views`}
         {video?.snippet.liveBroadcastContent! !== "live" &&
-          " . " +
-            moment(Date.now()).diff(video?.snippet?.publishTime, "days") +
-            " days ago"}
+          " . " + moment(video?.snippet?.publishedAt, "YYYYMMDD").fromNow()}
       </Text>
       <Text>
         {loadMore ? video?.snippet?.description : lessDescription + "..."}
