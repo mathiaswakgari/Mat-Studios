@@ -25,14 +25,14 @@ const VideoDescription = ({ onClick, video, loadMore }: Props) => {
       paddingX={2}
     >
       <Text noOfLines={1} alignSelf={"start"}>
-        {`${millify(parseInt(video.statistics?.viewCount!))} views`}
+        {`${millify(parseInt(video?.statistics?.viewCount!))} views`}
         {video?.snippet.liveBroadcastContent! !== "live" &&
           " . " +
-            moment(Date.now()).diff(video.snippet?.publishTime, "days") +
+            moment(Date.now()).diff(video?.snippet?.publishTime, "days") +
             " days ago"}
       </Text>
       <Text>
-        {loadMore ? video?.snippet.description : lessDescription + "..."}
+        {loadMore ? video?.snippet?.description : lessDescription + "..."}
         <Button size={"xs"} colorScheme={"green"} onClick={onClick}>
           {loadMore ? "Less" : "More"}
         </Button>

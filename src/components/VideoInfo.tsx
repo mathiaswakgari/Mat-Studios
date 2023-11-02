@@ -13,13 +13,13 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
   return (
     <HStack width={"100%"} alignSelf={"start"} justifyContent={"space-between"}>
       <HStack>
-        <Avatar alignSelf={"start"} size={"md"} src={channelUrl} />
+        <Avatar alignSelf={"start"} size={"md"} src={channelUrl!} />
         <VStack lineHeight={0.6} alignItems={"start"}>
           <Text lineHeight={1} fontSize={"lg"} fontWeight={"bold"}>
-            {channelTitle}
+            {channelTitle!}
           </Text>
           <Text fontSize={"sm"} noOfLines={1} color={color.textColor}>
-            {millify(parseInt(subscribers))} Subscribers
+            {millify(parseInt(subscribers!))} Subscribers
           </Text>
         </VStack>
         <Button

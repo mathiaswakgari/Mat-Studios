@@ -3,21 +3,41 @@ import { useParams } from "react-router-dom";
 import api_client from "../services/api_client";
 import { Video } from "../hooks/useVideos";
 import VideoPlayer from "../components/VideoPlayer";
-import { Box, Button, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import VideoInfo from "../components/VideoInfo";
-import moment from "moment";
-import color from "../color";
-import millify from "millify";
+
 import { useState } from "react";
 import VideoDescription from "../components/VideoDescription";
 
+import Comments from "../components/Comments";
+
 interface FetchVideo {
-  items: Video[];
+  items?: Video[];
 }
 interface FetchVChannel {
   items: Channel[];
 }
 
+interface FetchComments {
+  items: Comment[];
+}
+
+export interface Comment {
+  id: string;
+  snippet: {
+    topLevelComment: {
+      snippet: {
+        authorChannelId: { value: string };
+        authorDisplayName: string;
+        authorProfileImageUrl: string;
+        channelId: string;
+        publishedAt: string;
+        textDisplay: string;
+        likeCount: number;
+      };
+    };
+  };
+}
 interface Channel {
   snippet: {
     thumbnails: {
@@ -31,7 +51,7 @@ interface Channel {
         url: string;
       };
     };
-    title: string;
+    title?: string;
   };
   statistics: {
     subscriberCount: string;
@@ -42,7 +62,7 @@ interface Channel {
 const VideoPage = () => {
   const { id } = useParams();
   const [loadMore, setLoadMore] = useState(false);
-  const { data } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["videos", id],
     queryFn: () =>
       api_client.get<FetchVideo>("videos", {
@@ -53,19 +73,31 @@ const VideoPage = () => {
       }),
   });
   const { data: channelData } = useQuery({
-    queryKey: ["channels", data?.data.items[0].snippet.channelId],
+    queryKey: ["channels", data?.data?.items![0].snippet?.channelId!],
     queryFn: () =>
       api_client.get<FetchVChannel>("channels", {
         params: {
           part: "snippet,statistics",
-          id: data?.data.items[0].snippet.channelId,
+          id: data?.data?.items![0]?.snippet?.channelId!,
+        },
+      }),
+  });
+  const { data: commentsData } = useQuery({
+    queryKey: ["comments", data?.data.items![0].id.videoId],
+    queryFn: () =>
+      api_client.get<FetchComments>("commentThreads", {
+        params: {
+          part: "snippet",
+          videoId: id,
+          maxResults: "100",
         },
       }),
   });
 
-  const channel = channelData?.data?.items[0];
+  if (isLoading) return <Text>Loading....</Text>;
 
-  const video = data?.data.items[0];
+  const channel = channelData?.data;
+  const video = data?.data.items![0]!;
 
   return (
     <VStack w={"100%"}>
@@ -79,14 +111,18 @@ const VideoPage = () => {
         {video?.snippet.title}
       </Text>
       <VideoInfo
-        channelTitle={channel?.snippet.title!}
-        subscribers={channel?.statistics.subscriberCount!}
-        channelUrl={channel?.snippet.thumbnails.medium.url!}
+        channelTitle={channel?.items[0]?.snippet?.title!}
+        subscribers={channel?.items[0].statistics?.subscriberCount!}
+        channelUrl={channel?.items[0].snippet?.thumbnails?.medium?.url!}
       />
       <VideoDescription
         onClick={() => setLoadMore(!loadMore)}
         loadMore={loadMore}
         video={video!}
+      />
+      <Comments
+        commentCount={video?.statistics?.commentCount!}
+        comments={commentsData?.data.items!}
       />
     </VStack>
   );
