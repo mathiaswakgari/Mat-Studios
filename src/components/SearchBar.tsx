@@ -2,6 +2,7 @@ import { InputGroup, InputRightElement, Input } from "@chakra-ui/react";
 import { BsSearch } from "react-icons/bs";
 import color from "../color";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   onSearch: (searchTerm: string) => void;
@@ -9,6 +10,7 @@ interface Props {
 
 const SearchBar = ({ onSearch }: Props) => {
   const searchRef = useRef<HTMLInputElement>(null);
+  const navigate = useNavigate();
 
   return (
     <form
@@ -16,6 +18,7 @@ const SearchBar = ({ onSearch }: Props) => {
         e.preventDefault();
         if (searchRef.current?.value) {
           onSearch(searchRef.current!.value);
+          navigate(`search?term=${searchRef.current!.value}`);
           searchRef.current!.value = "";
         }
       }}

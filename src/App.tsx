@@ -10,6 +10,7 @@ import color from "./color";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <>
       <Grid
