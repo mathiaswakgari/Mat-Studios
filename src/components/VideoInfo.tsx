@@ -14,7 +14,7 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
     <HStack width={"100%"} alignSelf={"start"} justifyContent={"space-between"}>
       <HStack>
         <Avatar alignSelf={"start"} size={"md"} src={channelUrl!} />
-        <VStack lineHeight={0.6} alignItems={"start"}>
+        <VStack lineHeight={1} alignItems={"start"}>
           <Text lineHeight={1} fontSize={"lg"} fontWeight={"bold"}>
             {channelTitle!}
           </Text>
