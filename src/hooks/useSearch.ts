@@ -1,19 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
 import api_client from "../services/api_client";
-import { FetchVideos } from "./useVideos";
-import { FetchChannel } from "./useChannel";
+import { Video } from "./useVideos";
+import { Channel } from "./useChannel";
 
-const useSearch = (term: string) => {
+interface FetchSearchResult {
+  items: (Video | Channel)[];
+}
+
+const useSearch = (term: string, category: "video" | "channel" | string) => {
   return useQuery({
-    queryKey: ["search", term],
+    queryKey: ["search", category, term],
     queryFn: () =>
-      api_client.get<FetchVideos | FetchChannel>("search", {
+      api_client.get<FetchSearchResult>("search", {
         params: {
           q: term,
           part: "snippet,id",
           regionCode: "US",
           maxResults: "50",
-          order: "date",
+          order: "",
+          type: category,
         },
       }),
   });

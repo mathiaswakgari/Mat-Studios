@@ -5,7 +5,7 @@ export interface FetchChannel {
   items: Channel[];
 }
 
-interface Channel {
+export interface Channel {
   snippet: {
     thumbnails: {
       default: {
@@ -23,6 +23,10 @@ interface Channel {
   statistics: {
     subscriberCount: string;
     videoCount: string;
+  };
+  id: {
+    kind: "youtube#channel";
+    channelId: string;
   };
 }
 

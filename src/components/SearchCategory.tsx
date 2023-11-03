@@ -3,7 +3,7 @@ import color from "../color";
 
 interface Props {
   onCategoryClick: (category: string) => void;
-  selectedCategory: string | "videos" | "channels";
+  selectedCategory: string | "video" | "channel";
 }
 
 const SearchCategory = ({ onCategoryClick, selectedCategory }: Props) => {
@@ -25,7 +25,7 @@ const SearchCategory = ({ onCategoryClick, selectedCategory }: Props) => {
         All
       </Button>
       <Button
-        value={"videos"}
+        value={"video"}
         bg={color.buttonColor}
         color={color.textColor}
         borderRadius={"lg"}
@@ -34,13 +34,13 @@ const SearchCategory = ({ onCategoryClick, selectedCategory }: Props) => {
         _hover={{
           bg: color.buttonColorTwo,
         }}
-        isDisabled={selectedCategory === "videos"}
+        isDisabled={selectedCategory === "video"}
         onClick={(e) => onCategoryClick(e.currentTarget.value)}
       >
         Videos
       </Button>
       <Button
-        value={"channels"}
+        value={"channel"}
         bg={color.buttonColor}
         color={color.textColor}
         borderRadius={"lg"}
@@ -49,7 +49,7 @@ const SearchCategory = ({ onCategoryClick, selectedCategory }: Props) => {
         _hover={{
           bg: color.buttonColorTwo,
         }}
-        isDisabled={selectedCategory === "channels"}
+        isDisabled={selectedCategory === "channel"}
         onClick={(e) => onCategoryClick(e.currentTarget.value)}
       >
         Channels
