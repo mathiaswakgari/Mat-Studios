@@ -46,12 +46,13 @@ export interface Video {
   };
 }
 
-const useVideos = () => {
+const useVideos = (category: string) => {
   return useInfiniteQuery({
-    queryKey: ["videos"],
+    queryKey: ["videos", category],
     queryFn: () => {
       return api_client.get<FetchVideos>("search", {
         params: {
+          q: category,
           part: "snippet,id",
           regionCode: "US",
           maxResults: "50",

@@ -1,13 +1,16 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import VideoCard from "./VideoCard";
 import useVideos from "../hooks/useVideos";
-import React from "react";
+import React, { useContext } from "react";
 import VideoSkeleton from "./VideoSkeleton";
+import CategoryContext from "../contexts/categoryContext";
 
 const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const VideosGrid = () => {
-  const { data, isError, isFetching } = useVideos();
+  const { category } = useContext(CategoryContext);
+
+  const { data, isError, isFetching } = useVideos(category);
 
   if (isError) return <Text>Error</Text>;
 

@@ -7,8 +7,9 @@ interface Props {
   onCategoryClick: (category: string) => void;
 }
 
+const sideBarCategories = [categories[0], categories[3], categories[6]];
+
 const SideBar = ({ selectedCategory, onCategoryClick }: Props) => {
-  const sideBarCategories = [categories[0], categories[3], categories[6]];
   return (
     <VStack w={"80px"} h={"calc(100vh - 55px)"}>
       {sideBarCategories.map((c) => (
@@ -23,10 +24,10 @@ const SideBar = ({ selectedCategory, onCategoryClick }: Props) => {
           w={"100%"}
           borderRadius={"2xl"}
           transitionDuration={"200ms"}
-          onClick={() => onCategoryClick(c.name)}
+          onClick={() => onCategoryClick(c.value!)}
         >
           <VStack>
-            {c.name === selectedCategory ? c.selectedIcon! : c.icon}
+            {c.value! === selectedCategory ? c.selectedIcon! : c.icon}
             {/* {c.icon} */}
             <Text fontSize={"xs"} color={color.textColor}>
               {c.name}

@@ -22,6 +22,7 @@ const fontSize = "25px";
 const categories = [
   {
     name: "Home",
+    value: "",
     icon: <GoHome color={color.businessNameColor} fontSize={fontSize} />,
     selectedIcon: (
       <GoHomeFill color={color.businessNameColor} fontSize={fontSize} />
@@ -37,6 +38,7 @@ const categories = [
   },
   {
     name: "Music",
+    value: "music",
     icon: (
       <MdOutlineLibraryMusic
         color={color.businessNameColor}
@@ -59,6 +61,7 @@ const categories = [
   },
   {
     name: "Movie",
+    value: "movie",
     icon: <PiFilmReel color={color.businessNameColor} fontSize={fontSize} />,
     selectedIcon: (
       <PiFilmReelFill color={color.businessNameColor} fontSize={fontSize} />

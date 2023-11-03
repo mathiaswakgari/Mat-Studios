@@ -7,7 +7,7 @@ interface GetCategory {
   type: "GET";
 }
 
-type CategroyAction = SetCatergory | GetCategory;
+export type CategroyAction = SetCatergory | GetCategory;
 
 const categoryReducer = (state: string, action: CategroyAction): string => {
   if (action.type === "SET") return action.categroy;

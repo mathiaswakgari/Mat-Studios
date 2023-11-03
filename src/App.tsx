@@ -7,6 +7,7 @@ import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import color from "./color";
 import categoryReducer from "./reducers/categoryReducer";
+import CategoryContext from "./contexts/categoryContext";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +54,9 @@ function App() {
           flexDirection={"column"}
           alignItems={"center"}
         >
-          <Outlet />
+          <CategoryContext.Provider value={{ category, dispatch }}>
+            <Outlet />
+          </CategoryContext.Provider>
         </GridItem>
       </Grid>
     </>
