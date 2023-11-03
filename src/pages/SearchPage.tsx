@@ -6,6 +6,8 @@ import SearchCategory from "../components/SearchCategory";
 import useSearch from "../hooks/useSearch";
 import SearchVideoCard from "../components/SearchVideoCard";
 import { Video } from "../hooks/useVideos";
+import SearchChannelCard from "../components/SearchChannelCard";
+import { Channel } from "../hooks/useChannel";
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -13,6 +15,7 @@ const SearchPage = () => {
   const term = searchParams.get("term");
   const { data } = useSearch(term!, category);
 
+  console.log(data?.data);
   return (
     <VStack w={"100%"} color={color.textColor}>
       <Text alignSelf={"start"}>Search: {term}</Text>
@@ -30,6 +33,8 @@ const SearchPage = () => {
         {data?.data.items.map((s) => {
           if (s.id.kind === "youtube#video")
             return <SearchVideoCard video={s as Video} />;
+          if (s.id.kind === "youtube#channel")
+            return <SearchChannelCard channel={s as Channel} />;
         })}
       </VStack>
     </VStack>

@@ -19,6 +19,8 @@ export interface Channel {
       };
     };
     title?: string;
+    description: string;
+    liveBroadcastContent: string;
   };
   statistics: {
     subscriberCount: string;

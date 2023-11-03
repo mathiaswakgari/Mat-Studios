@@ -3,6 +3,7 @@ import millify from "millify";
 import color from "../color";
 import { SlUserFollow } from "react-icons/sl";
 import { BiDislike, BiLike } from "react-icons/bi";
+import SubscribeButton from "./SubscribeButton";
 
 interface Props {
   channelUrl: string;
@@ -27,16 +28,7 @@ const VideoInfo = ({ channelTitle, channelUrl, subscribers }: Props) => {
             {millify(parseInt(subscribers!))} Subscribers
           </Text>
         </VStack>
-        <Button
-          marginLeft={2}
-          // isDisabled
-          borderRadius={"3xl"}
-          colorScheme="red"
-          size={"sm"}
-          rightIcon={<SlUserFollow />}
-        >
-          Subscribe
-        </Button>
+        <SubscribeButton />
       </HStack>
 
       <HStack
