@@ -7,10 +7,21 @@ const SideBar = () => {
   return (
     <VStack w={"80px"} h={"calc(100vh - 55px)"}>
       {sideBarCategories.map((c) => (
-        <VStack paddingTop={5}>
+        <VStack
+          _hover={{
+            bg: color.hoverColor,
+          }}
+          marginLeft={5}
+          cursor={"pointer"}
+          key={c.name}
+          paddingTop={5}
+          w={"100%"}
+          borderRadius={"2xl"}
+          transitionDuration={"200ms"}
+        >
           <VStack>
             {c.icon}
-            <Text fontSize={"sm"} color={color.textColor}>
+            <Text fontSize={"xs"} color={color.textColor}>
               {c.name}
             </Text>
           </VStack>

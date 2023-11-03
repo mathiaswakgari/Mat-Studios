@@ -9,5 +9,6 @@ const color = {
   borderColor: "#595959",
   buttonColor: "#404040",
   buttonColorTwo: "#595959",
+  hoverColor: "#262626",
 };
 export default color;
