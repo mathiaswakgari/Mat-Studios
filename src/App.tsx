@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar";
 import SideDrawer from "./components/SideDrawer";
@@ -6,11 +6,12 @@ import SideBar from "./components/SideBar";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import color from "./color";
+import categoryReducer from "./reducers/categoryReducer";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [category, setCatergory] = useState("Home");
+  const [category, dispatch] = useReducer(categoryReducer, "Home");
 
   return (
     <>
@@ -35,7 +36,9 @@ function App() {
           <Box>
             <SideBar
               selectedCategory={category}
-              onCategoryClick={(category: string) => setCatergory(category)}
+              onCategoryClick={(category: string) =>
+                dispatch({ type: "SET", categroy: category })
+              }
             />
           </Box>
         </GridItem>
