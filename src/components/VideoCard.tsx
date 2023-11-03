@@ -45,7 +45,8 @@ const VideoCard = ({ video }: Props) => {
             <VStack gap={0}>
               <Text
                 lineHeight={"5"}
-                fontSize={"lg"}
+                fontSize={"sm"}
+                fontWeight={"medium"}
                 color={color.textColor}
                 noOfLines={2}
               >
@@ -54,7 +55,7 @@ const VideoCard = ({ video }: Props) => {
               <Text
                 marginTop={1}
                 noOfLines={1}
-                fontSize={"md"}
+                fontSize={"sm"}
                 fontWeight={"semibold"}
                 alignSelf={"start"}
                 color={color.textTwoColor}
@@ -65,13 +66,10 @@ const VideoCard = ({ video }: Props) => {
                 noOfLines={1}
                 alignSelf={"start"}
                 color={color.textTwoColor}
-                fontSize={"md"}
+                fontSize={"xs"}
               >
-                # of Views
                 {video.snippet.liveBroadcastContent! !== "live" &&
-                  " . " +
-                    moment(Date.now()).diff(video.snippet.publishTime, "days") +
-                    " days"}
+                  moment(video.snippet.publishedAt, "YYYYMMDD").fromNow()}
               </Text>
               {video.snippet.liveBroadcastContent === "live" && (
                 <Badge
