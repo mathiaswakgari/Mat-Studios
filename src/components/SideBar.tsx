@@ -2,7 +2,12 @@ import { Text, VStack } from "@chakra-ui/react";
 import categories from "../utils/categories";
 import color from "../color";
 
-const SideBar = () => {
+interface Props {
+  selectedCategory: string;
+  onCategoryClick: (category: string) => void;
+}
+
+const SideBar = ({ selectedCategory, onCategoryClick }: Props) => {
   const sideBarCategories = [categories[0], categories[3], categories[6]];
   return (
     <VStack w={"80px"} h={"calc(100vh - 55px)"}>
@@ -18,9 +23,11 @@ const SideBar = () => {
           w={"100%"}
           borderRadius={"2xl"}
           transitionDuration={"200ms"}
+          onClick={() => onCategoryClick(c.name)}
         >
           <VStack>
-            {c.icon}
+            {c.name === selectedCategory ? c.selectedIcon! : c.icon}
+            {/* {c.icon} */}
             <Text fontSize={"xs"} color={color.textColor}>
               {c.name}
             </Text>

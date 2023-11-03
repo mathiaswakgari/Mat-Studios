@@ -10,6 +10,7 @@ import color from "./color";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCatergory] = useState("Home");
 
   return (
     <>
@@ -32,7 +33,10 @@ function App() {
         <GridItem marginTop={"55px"} area={"sidebar"}>
           <SideDrawer onClose={() => setIsOpen(false)} isOpen={isOpen} />
           <Box>
-            <SideBar />
+            <SideBar
+              selectedCategory={category}
+              onCategoryClick={(category: string) => setCatergory(category)}
+            />
           </Box>
         </GridItem>
         <GridItem

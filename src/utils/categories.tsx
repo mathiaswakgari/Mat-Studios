@@ -5,13 +5,16 @@ import {
   IoSchoolOutline,
   IoShirtOutline,
 } from "react-icons/io5";
-import { PiTelevisionSimpleBold } from "react-icons/pi";
+import {
+  PiFilmReel,
+  PiFilmReelFill,
+  PiTelevisionSimpleBold,
+} from "react-icons/pi";
 import { FaRegFaceGrinHearts } from "react-icons/fa6";
-import { MdOutlineTheaterComedy } from "react-icons/md";
+import { MdLibraryMusic, MdOutlineTheaterComedy } from "react-icons/md";
 import { IoIosFitness } from "react-icons/io";
-import { GoHome } from "react-icons/go";
+import { GoHome, GoHomeFill } from "react-icons/go";
 import { MdOutlineLibraryMusic } from "react-icons/md";
-import { PiFilmSlate } from "react-icons/pi";
 import color from "../color";
 
 const fontSize = "25px";
@@ -20,6 +23,9 @@ const categories = [
   {
     name: "Home",
     icon: <GoHome color={color.businessNameColor} fontSize={fontSize} />,
+    selectedIcon: (
+      <GoHomeFill color={color.businessNameColor} fontSize={fontSize} />
+    ),
   },
   {
     name: "Coding",
@@ -37,6 +43,9 @@ const categories = [
         fontSize={fontSize}
       />
     ),
+    selectedIcon: (
+      <MdLibraryMusic color={color.businessNameColor} fontSize={fontSize} />
+    ),
   },
   {
     name: "Education",
@@ -50,7 +59,10 @@ const categories = [
   },
   {
     name: "Movie",
-    icon: <PiFilmSlate color={color.businessNameColor} fontSize={fontSize} />,
+    icon: <PiFilmReel color={color.businessNameColor} fontSize={fontSize} />,
+    selectedIcon: (
+      <PiFilmReelFill color={color.businessNameColor} fontSize={fontSize} />
+    ),
   },
   {
     name: "Gaming",
