@@ -10,7 +10,9 @@ const SideBar = () => {
         <VStack paddingTop={5}>
           <VStack>
             {c.icon}
-            <Text color={color.textColor}>{c.name}</Text>
+            <Text fontSize={"sm"} color={color.textColor}>
+              {c.name}
+            </Text>
           </VStack>
         </VStack>
       ))}
