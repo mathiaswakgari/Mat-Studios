@@ -1,6 +1,7 @@
 import { Text, VStack } from "@chakra-ui/react";
 import categories from "../utils/categories";
 import color from "../color";
+import { Link } from "react-router-dom";
 
 interface Props {
   selectedCategory: string;
@@ -26,13 +27,15 @@ const SideBar = ({ selectedCategory, onCategoryClick }: Props) => {
           transitionDuration={"200ms"}
           onClick={() => onCategoryClick(c.value!)}
         >
-          <VStack>
-            {c.value! === selectedCategory ? c.selectedIcon! : c.icon}
-            {/* {c.icon} */}
-            <Text fontSize={"xs"} color={color.textColor}>
-              {c.name}
-            </Text>
-          </VStack>
+          <Link to={`/`}>
+            <VStack>
+              {c.value! === selectedCategory ? c.selectedIcon! : c.icon}
+              {/* {c.icon} */}
+              <Text fontSize={"xs"} color={color.textColor}>
+                {c.name}
+              </Text>
+            </VStack>
+          </Link>
         </VStack>
       ))}
     </VStack>
