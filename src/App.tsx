@@ -12,7 +12,7 @@ import CategoryContext from "./contexts/categoryContext";
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [category, dispatch] = useReducer(categoryReducer, "Home");
+  const [category, dispatch] = useReducer(categoryReducer, "");
 
   return (
     <>
