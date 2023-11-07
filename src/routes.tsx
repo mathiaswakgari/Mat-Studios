@@ -3,6 +3,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import Video from "./pages/VideoPage";
 import SearchPage from "./pages/SearchPage";
+import ChannelPage from "./pages/ChannelPage";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
         path: "videos/:id",
         element: <Video />,
       },
+      { path: "channels/:id", element: <ChannelPage /> },
       {
         path: "search",
         element: <SearchPage />,
