@@ -37,7 +37,11 @@ const NavBar = ({ onToggle, onSearch }: Props) => {
           <AiOutlineMenu color={color.businessNameColor} fontSize={"25px"} />
         </Box>
         <Box>
-          <Image h={"30px"} src={logo} objectFit={"fill"} />
+          <Image
+            h={{ base: "20px", md: "30px" }}
+            src={logo}
+            objectFit={"fill"}
+          />
         </Box>
       </HStack>
       <SearchBar onSearch={onSearch} />

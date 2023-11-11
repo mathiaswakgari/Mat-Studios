@@ -25,8 +25,10 @@ const SearchBar = ({ onSearch }: Props) => {
     >
       <InputGroup
         width={{
-          base: "sm",
+          base: "4xs",
+          sm: "3xs",
           md: "lg",
+          lg: "xl",
           xl: "2xl",
         }}
       >
