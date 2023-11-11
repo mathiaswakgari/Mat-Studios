@@ -30,6 +30,9 @@ export interface Channel {
     kind: "youtube#channel";
     channelId: string;
   };
+  brandingSettings: {
+    image: { bannerExternalUrl: string };
+  };
 }
 
 const useChannel = (channelId: string) => {

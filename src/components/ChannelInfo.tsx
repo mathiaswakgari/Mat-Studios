@@ -19,7 +19,6 @@ const ChannelInfo = ({ channel }: Props) => {
     },
     statistics: { subscriberCount, videoCount },
   } = channel;
-
   return (
     <>
       <HStack w={"100%"} paddingY={2} color={color.textColor}>
