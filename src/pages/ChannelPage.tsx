@@ -3,6 +3,7 @@ import ChannelInfo from "../components/ChannelInfo";
 import { useParams } from "react-router-dom";
 import useChannel from "../hooks/useChannel";
 import ChannelBanner from "../components/ChannelBanner";
+import VideosGrid from "../components/VideosGrid";
 
 const ChannelPage = () => {
   const { id } = useParams();

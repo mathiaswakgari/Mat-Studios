@@ -1,19 +1,20 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import VideoCard from "./VideoCard";
-import useVideos from "../hooks/useVideos";
+import useVideos, { FetchVideos } from "../hooks/useVideos";
 import React, { useContext } from "react";
 import VideoSkeleton from "./VideoSkeleton";
-import CategoryContext from "../contexts/categoryContext";
+
+import { InfiniteData } from "@tanstack/react-query";
+import { AxiosResponse } from "axios";
 
 const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
-const VideosGrid = () => {
-  const { category } = useContext(CategoryContext);
+interface Props {
+  isFetching: boolean;
+  data: InfiniteData<AxiosResponse<FetchVideos, any>, unknown>;
+}
 
-  const { data, isError, isFetching } = useVideos(category);
-
-  if (isError) return <Text>Error</Text>;
-
+const VideosGrid = ({ isFetching, data }: Props) => {
   return (
     <SimpleGrid
       columns={{
