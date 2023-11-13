@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SideDrawer from "./components/SideDrawer";
 import SideBar from "./components/SideBar";
-import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Show } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import color from "./color";
 import categoryReducer from "./reducers/categoryReducer";
@@ -16,11 +16,16 @@ function App() {
 
   return (
     <>
+      <SideDrawer onClose={() => setIsOpen(false)} isOpen={isOpen} />
       <CategoryContext.Provider value={{ category, dispatch }}>
         <Grid
           templateAreas={{
-            base: `"navbar    navbar"
+            lg: `"navbar    navbar"
              "sidebar   main"`,
+            base: `
+                  "navbar navbar"
+                  "main    main"
+             `,
           }}
           templateColumns={{
             base: `80px 1fr`,
@@ -33,17 +38,18 @@ function App() {
               onToggle={() => setIsOpen(true)}
             />
           </GridItem>
-          <GridItem marginTop={"55px"} area={"sidebar"}>
-            <SideDrawer onClose={() => setIsOpen(false)} isOpen={isOpen} />
-            <Box>
-              <SideBar
-                selectedCategory={category}
-                onCategoryClick={(category: string) =>
-                  dispatch({ type: "SET", categroy: category })
-                }
-              />
-            </Box>
-          </GridItem>
+          <Show above="lg">
+            <GridItem marginTop={"55px"} area={"sidebar"}>
+              <Box>
+                <SideBar
+                  selectedCategory={category}
+                  onCategoryClick={(category: string) =>
+                    dispatch({ type: "SET", categroy: category })
+                  }
+                />
+              </Box>
+            </GridItem>
+          </Show>
           <GridItem
             marginTop={"55px"}
             area={"main"}
