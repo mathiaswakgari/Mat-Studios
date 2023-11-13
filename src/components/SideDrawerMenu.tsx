@@ -2,21 +2,29 @@ import { HStack, Text } from "@chakra-ui/react";
 import color from "../color";
 
 interface Props {
-  catergory: {
+  category: {
     name: string;
     icon: JSX.Element;
+    value?: string;
+    selectedIcon?: JSX.Element;
   };
+  onClick: (category: string) => void;
+  selectedCategory: string;
 }
 
-const SideDrawerMenu = ({ catergory }: Props) => {
+const SideDrawerMenu = ({ category, onClick, selectedCategory }: Props) => {
+  console.log(category, selectedCategory);
   return (
     <>
       <HStack
-        key={catergory.name}
+        key={category.name}
         _hover={{
           backgroundColor: color.baseColor,
           transitionDuration: "400ms",
         }}
+        onClick={() =>
+          onClick(category.name === "Home" ? "" : category.name.toLowerCase())
+        }
         cursor={"pointer"}
         bg={""}
         paddingY={1}
@@ -24,8 +32,11 @@ const SideDrawerMenu = ({ catergory }: Props) => {
         borderRadius={"full"}
         marginY={5}
       >
-        {catergory.icon}
-        <Text color={color.textColor}>{catergory.name}</Text>
+        {selectedCategory === category.name.toLowerCase()
+          ? category.selectedIcon
+          : category.icon}
+
+        <Text color={color.textColor}>{category.name}</Text>
       </HStack>
       <hr></hr>
     </>

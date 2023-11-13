@@ -13,13 +13,16 @@ import { AiOutlineMenu } from "react-icons/ai";
 import color from "../color";
 import categories from "../utils/categories";
 import SideDrawerMenu from "./SideDrawerMenu";
+import { useContext } from "react";
 
+import CategoryContext from "../contexts/categoryContext";
 interface Props {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const SideDrawer = ({ isOpen, onClose }: Props) => {
+  const { category, dispatch } = useContext(CategoryContext);
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
@@ -52,7 +55,13 @@ const SideDrawer = ({ isOpen, onClose }: Props) => {
 
         <DrawerBody>
           {categories.map((c) => (
-            <SideDrawerMenu catergory={c} />
+            <SideDrawerMenu
+              category={c}
+              onClick={(category: string) =>
+                dispatch({ type: "SET", categroy: category })
+              }
+              selectedCategory={category}
+            />
           ))}
         </DrawerBody>
       </DrawerContent>

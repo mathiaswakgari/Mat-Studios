@@ -52,7 +52,7 @@ const useVideos = (category: string) => {
     queryFn: () => {
       return api_client.get<FetchVideos>("search", {
         params: {
-          q: category,
+          q: category === "home" ? "" : category,
           part: "snippet,id",
           regionCode: "US",
           maxResults: "50",
