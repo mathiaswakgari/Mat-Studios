@@ -13,21 +13,17 @@ interface Props {
 }
 
 const SideDrawerMenu = ({ category, onClick, selectedCategory }: Props) => {
-  console.log(category, selectedCategory);
   return (
     <>
       <HStack
+        h={10}
         key={category.name}
         _hover={{
-          backgroundColor: color.baseColor,
+          backgroundColor: color.hoverColor,
           transitionDuration: "400ms",
         }}
-        onClick={() =>
-          onClick(category.name === "Home" ? "" : category.name.toLowerCase())
-        }
+        onClick={() => onClick(category.name.toLowerCase())}
         cursor={"pointer"}
-        bg={""}
-        paddingY={1}
         paddingLeft={2}
         borderRadius={"full"}
         marginY={5}
@@ -38,7 +34,6 @@ const SideDrawerMenu = ({ category, onClick, selectedCategory }: Props) => {
 
         <Text color={color.textColor}>{category.name}</Text>
       </HStack>
-      <hr></hr>
     </>
   );
 };
