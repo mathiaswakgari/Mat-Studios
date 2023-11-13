@@ -16,8 +16,6 @@ const VideoDescription = ({ onClick, video, loadMore }: Props) => {
       ? video?.snippet.description.slice(0, 500) + "..."
       : video?.snippet.description;
 
-  console.log(lessDescription);
-
   return (
     <Box
       alignSelf={"start"}

@@ -52,6 +52,7 @@ const VideoCard = ({ video }: Props) => {
               >
                 {video.snippet.title}
               </Text>
+
               <Text
                 marginTop={1}
                 noOfLines={1}
@@ -59,9 +60,15 @@ const VideoCard = ({ video }: Props) => {
                 fontWeight={"semibold"}
                 alignSelf={"start"}
                 color={color.textTwoColor}
+                _hover={{
+                  color: color.textColor,
+                }}
               >
-                {video.snippet.channelTitle}
+                <Link to={`/channels/${video.snippet.channelId}`}>
+                  {video.snippet.channelTitle}{" "}
+                </Link>
               </Text>
+
               <Text
                 noOfLines={1}
                 alignSelf={"start"}

@@ -46,10 +46,12 @@ const VideoPage = () => {
         >
           {video?.snippet.title}
         </Text>
+
         <VideoInfo
           channelTitle={channel?.items[0]?.snippet?.title!}
           subscribers={channel?.items[0].statistics?.subscriberCount!}
           channelUrl={channel?.items[0].snippet?.thumbnails?.medium?.url!}
+          channelId={video.snippet.channelId}
         />
         <VideoDescription
           onClick={() => setLoadMore(!loadMore)}
