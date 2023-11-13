@@ -4,6 +4,7 @@ import logo from "../assets/logos/matstudios-high-resolution-logo-transparent.sv
 import color from "../color";
 import SearchBar from "./SearchBar";
 import ProfileMenu from "./ProfileMenu";
+import { Link } from "react-router-dom";
 
 interface Props {
   onToggle: () => void;
@@ -37,11 +38,13 @@ const NavBar = ({ onToggle, onSearch }: Props) => {
           <AiOutlineMenu color={color.businessNameColor} fontSize={"25px"} />
         </Box>
         <Box>
-          <Image
-            h={{ base: "20px", md: "30px" }}
-            src={logo}
-            objectFit={"fill"}
-          />
+          <Link to={"/"}>
+            <Image
+              h={{ base: "20px", md: "30px" }}
+              src={logo}
+              objectFit={"fill"}
+            />
+          </Link>
         </Box>
       </HStack>
       <SearchBar onSearch={onSearch} />
