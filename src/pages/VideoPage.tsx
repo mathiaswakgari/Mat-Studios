@@ -12,6 +12,7 @@ import useVideo from "../hooks/useVideo";
 import useChannel from "../hooks/useChannel";
 import useComments from "../hooks/useComments";
 import color from "../color";
+import Loader from "../components/Loader";
 
 const VideoPage = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const VideoPage = () => {
   );
 
   const { data: commentsData } = useComments(id!);
-  if (isLoading) return <Text>Loading....</Text>;
+  if (isLoading) return <Loader />;
 
   const channel = channelData?.data;
   const video = videoData?.data.items![0]!;

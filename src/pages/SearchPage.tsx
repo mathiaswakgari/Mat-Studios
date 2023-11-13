@@ -8,14 +8,16 @@ import SearchVideoCard from "../components/SearchVideoCard";
 import { Video } from "../hooks/useVideos";
 import SearchChannelCard from "../components/SearchChannelCard";
 import { Channel } from "../hooks/useChannel";
+import Loader from "../components/Loader";
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const [category, setCategory] = useState("");
   const term = searchParams.get("term");
-  const { data } = useSearch(term!, category);
+  const { data, isFetching } = useSearch(term!, category);
 
-  console.log(data?.data);
+  if (isFetching) return <Loader />;
+
   return (
     <VStack w={"100%"} color={color.textColor}>
       <Text alignSelf={"start"}>Search: {term}</Text>

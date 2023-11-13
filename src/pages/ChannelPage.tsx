@@ -1,15 +1,16 @@
-import { VStack, Text, Divider } from "@chakra-ui/react";
+import { VStack, Divider } from "@chakra-ui/react";
 import ChannelInfo from "../components/ChannelInfo";
 import { useParams } from "react-router-dom";
 import useChannel from "../hooks/useChannel";
 import ChannelBanner from "../components/ChannelBanner";
 import ChannelVideos from "../components/ChannelVideos";
+import Loader from "../components/Loader";
 
 const ChannelPage = () => {
   const { id } = useParams();
   const { data, isLoading } = useChannel(id!);
 
-  if (isLoading) return <Text>Loading...</Text>;
+  if (isLoading) return <Loader />;
 
   const channel = data?.data?.items[0]!;
 
