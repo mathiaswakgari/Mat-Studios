@@ -1,4 +1,4 @@
-import { Avatar, HStack, VStack, Text, Divider } from "@chakra-ui/react";
+import { Avatar, HStack, VStack, Text } from "@chakra-ui/react";
 import SubscribeButton from "./SubscribeButton";
 import color from "../color";
 import { Channel } from "../hooks/useChannel";
@@ -22,7 +22,13 @@ const ChannelInfo = ({ channel }: Props) => {
   return (
     <>
       <HStack w={"100%"} paddingY={2} color={color.textColor}>
-        <Avatar size={{ base: "lg", md: "2xl" }} marginX={2} src={url} />
+        <Avatar
+          size={{ base: "lg", md: "2xl" }}
+          marginX={2}
+          src={url}
+          bg={color.hoverColor}
+          color={color.textColor}
+        />
         <VStack w={"full"} alignItems={"start"}>
           <Text fontSize={{ base: "2xl", md: "4xl" }} fontWeight={"bold"}>
             {title}

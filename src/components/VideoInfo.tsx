@@ -21,7 +21,13 @@ const VideoInfo = ({
     <HStack width={"100%"} alignSelf={"start"} justifyContent={"space-between"}>
       <Link to={`/channels/${channelId!}`}>
         <HStack>
-          <Avatar alignSelf={"start"} size={"md"} src={channelUrl!} />
+          <Avatar
+            alignSelf={"start"}
+            size={"md"}
+            src={channelUrl!}
+            bg={color.hoverColor}
+            color={color.textColor}
+          />
           <VStack lineHeight={1} alignItems={"start"}>
             <Text
               lineHeight={1}
