@@ -8,8 +8,8 @@ const VideoSkeleton = () => {
         startColor={color.bgColor}
         endColor={color.sloganColor}
         borderRadius={"2xl"}
-        height={{ base: 150, sm: 120, md: 150 }}
-        width={{ base: 280, sm: 220, md: 280 }}
+        height={{ base: 150, sm: 120, md: 150, xl: 180 }}
+        width={{ base: 280, sm: 220, md: 280, xl: 320 }}
       ></Skeleton>
       <SkeletonText
         startColor={color.bgColor}
