@@ -5,7 +5,7 @@ const color = {
   baseColor: "#595959",
   textColor: "#ffffff",
   textTwoColor: "#bfbfbf",
-  bgColor: "#000000",
+  bgColor: "#121212",
   borderColor: "#595959",
   buttonColor: "#404040",
   buttonColorTwo: "#595959",
