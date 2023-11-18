@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-      <SideDrawer onClose={() => setIsOpen(false)} isOpen={isOpen} />
       <CategoryContext.Provider value={{ category, dispatch }}>
+        <SideDrawer onClose={() => setIsOpen(false)} isOpen={isOpen} />
         <Grid
           templateAreas={{
             lg: `"navbar    navbar"
