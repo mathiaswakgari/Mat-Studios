@@ -11,7 +11,6 @@ import CategoryContext from "./contexts/categoryContext";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [category, dispatch] = useReducer(categoryReducer, "home");
 
   return (
@@ -33,10 +32,7 @@ function App() {
           bg={color.bgColor}
         >
           <GridItem area={"navbar"}>
-            <NavBar
-              onSearch={(searchTerm) => setSearchTerm(searchTerm)}
-              onToggle={() => setIsOpen(true)}
-            />
+            <NavBar onToggle={() => setIsOpen(true)} />
           </GridItem>
           <Show above="lg">
             <GridItem marginTop={"55px"} area={"sidebar"}>

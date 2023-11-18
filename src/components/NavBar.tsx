@@ -8,10 +8,9 @@ import { Link } from "react-router-dom";
 
 interface Props {
   onToggle: () => void;
-  onSearch: (searchTerm: string) => void;
 }
 
-const NavBar = ({ onToggle, onSearch }: Props) => {
+const NavBar = ({ onToggle }: Props) => {
   return (
     <HStack
       height={"55px"}
@@ -47,7 +46,7 @@ const NavBar = ({ onToggle, onSearch }: Props) => {
           </Link>
         </Box>
       </HStack>
-      <SearchBar onSearch={onSearch} />
+      <SearchBar />
       <ProfileMenu />
     </HStack>
   );

@@ -4,11 +4,7 @@ import color from "../color";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-interface Props {
-  onSearch: (searchTerm: string) => void;
-}
-
-const SearchBar = ({ onSearch }: Props) => {
+const SearchBar = () => {
   const searchRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
 
@@ -17,7 +13,6 @@ const SearchBar = ({ onSearch }: Props) => {
       onSubmit={(e) => {
         e.preventDefault();
         if (searchRef.current?.value) {
-          onSearch(searchRef.current!.value);
           navigate(`search?term=${searchRef.current!.value}`);
           searchRef.current!.value = "";
         }
