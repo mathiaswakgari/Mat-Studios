@@ -1,6 +1,6 @@
 import { Box, HStack, Image } from "@chakra-ui/react";
 import { AiOutlineMenu } from "react-icons/ai";
-import logo from "../assets/logos/matstudios-high-resolution-logo-transparent.svg";
+import logo from "../assets/logos/logo.svg";
 import color from "../color";
 import SearchBar from "./SearchBar";
 import ProfileMenu from "./ProfileMenu";
