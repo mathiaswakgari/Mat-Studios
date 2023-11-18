@@ -1,7 +1,7 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import VideoCard from "./VideoCard";
-import useVideos, { FetchVideos } from "../hooks/useVideos";
-import React, { useContext } from "react";
+import { FetchVideos } from "../hooks/useVideos";
+import React from "react";
 import VideoSkeleton from "./VideoSkeleton";
 
 import { InfiniteData } from "@tanstack/react-query";

@@ -1,5 +1,5 @@
 import { AiFillCode, AiOutlineCode } from "react-icons/ai";
-import { BiLogoReact, BiPodcast, BiFootball, BiBitcoin } from "react-icons/bi";
+import { BiLogoReact, BiPodcast, BiBitcoin } from "react-icons/bi";
 import {
   IoAmericanFootballOutline,
   IoAmericanFootballSharp,

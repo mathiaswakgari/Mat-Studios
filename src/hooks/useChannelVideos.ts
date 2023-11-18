@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import api_client from "../services/api_client";
 import { FetchVideos } from "./useVideos";
 
@@ -15,7 +15,7 @@ const useChannelVideos = (channelId: string) => {
         },
       }),
     refetchOnWindowFocus: false,
-    getNextPageParam: (lastPage, pages) => pages.length + 1,
+    getNextPageParam: () => {},
     initialPageParam: undefined,
   });
 };

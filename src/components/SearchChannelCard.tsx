@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, HStack, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Card, HStack, Text, VStack } from "@chakra-ui/react";
 import { Channel } from "../hooks/useChannel";
 import { Link } from "react-router-dom";
 import color from "../color";
