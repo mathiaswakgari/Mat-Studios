@@ -9,13 +9,17 @@ const ProfileMenu = () => {
         <Avatar
           icon={<BsPerson fontSize="20px" />}
           size={"sm"}
-          bg={color.baseColor}
+          bg={color.hoverColor}
           color={color.textColor}
         />
       </MenuButton>
-      <MenuList color={color.textTwoColor} border={"none"} bg={color.baseColor}>
-        <MenuItem bg={color.baseColor}>Download</MenuItem>
-        <MenuItem bg={color.baseColor}>Create a Copy</MenuItem>
+      <MenuList
+        color={color.textTwoColor}
+        border={"none"}
+        bg={color.hoverColor}
+      >
+        <MenuItem bg={color.hoverColor}>Download</MenuItem>
+        <MenuItem bg={color.hoverColor}>Create a Copy</MenuItem>
       </MenuList>
     </Menu>
   );
