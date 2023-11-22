@@ -18,8 +18,7 @@ const ProfileMenu = () => {
         border={"none"}
         bg={color.hoverColor}
       >
-        <MenuItem bg={color.hoverColor}>Download</MenuItem>
-        <MenuItem bg={color.hoverColor}>Create a Copy</MenuItem>
+        <MenuItem bg={color.hoverColor}>Sign in</MenuItem>
       </MenuList>
     </Menu>
   );
