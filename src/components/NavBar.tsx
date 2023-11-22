@@ -18,6 +18,8 @@ const NavBar = ({ onToggle }: Props) => {
       paddingX={5}
       position={"fixed"}
       justifyContent={"space-between"}
+      borderBottom={"1px"}
+      borderBottomColor={color.hoverColor}
       zIndex={10}
     >
       <HStack>
