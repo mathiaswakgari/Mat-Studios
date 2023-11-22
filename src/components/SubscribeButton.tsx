@@ -8,7 +8,7 @@ const SubscribeButton = () => {
       // isDisabled
       borderRadius={"3xl"}
       colorScheme="red"
-      size={"sm"}
+      size={{ base: "xs", md: "md" }}
       rightIcon={<SlUserFollow />}
     >
       Subscribe
