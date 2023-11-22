@@ -4,11 +4,13 @@ import Home from "./pages/Home";
 import Video from "./pages/VideoPage";
 import SearchPage from "./pages/SearchPage";
 import ChannelPage from "./pages/ChannelPage";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
 
     children: [
       { index: true, element: <Home /> },
