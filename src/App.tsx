@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SideDrawer from "./components/SideDrawer";
 import SideBar from "./components/SideBar";
-import { Box, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Show, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import color from "./color";
 import categoryReducer from "./reducers/categoryReducer";
@@ -20,10 +20,12 @@ function App() {
         <Grid
           templateAreas={{
             lg: `"navbar    navbar"
-             "sidebar   main"`,
+             "sidebar   main"
+             "footer    footer"`,
             base: `
                   "navbar navbar"
                   "main    main"
+                  "footer   footer"
              `,
           }}
           templateColumns={{
@@ -35,7 +37,7 @@ function App() {
             <NavBar onToggle={() => setIsOpen(true)} />
           </GridItem>
           <Show above="lg">
-            <GridItem marginTop={"55px"} area={"sidebar"}>
+            <GridItem area={"sidebar"}>
               <Box>
                 <SideBar
                   selectedCategory={category}
@@ -49,7 +51,7 @@ function App() {
           <GridItem
             marginTop={"55px"}
             area={"main"}
-            height={"calc(100vh - 55px)"}
+            height={"calc(100vh - 95px)"}
             overflowY={"scroll"}
             paddingY={5}
             paddingX={5}
@@ -58,6 +60,21 @@ function App() {
             alignItems={"center"}
           >
             <Outlet />
+          </GridItem>
+          <GridItem
+            area={"footer"}
+            h={"40px"}
+            alignItems={"center"}
+            display={"flex"}
+            justifyContent={"center"}
+          >
+            <Text
+              fontSize={{ base: "xs", md: "sm" }}
+              textAlign={"center"}
+              color={color.textColor}
+            >
+              ©2023 Mathias Wakgari™️.All rights reserved.
+            </Text>
           </GridItem>
         </Grid>
       </CategoryContext.Provider>
