@@ -12,7 +12,7 @@ const sideBarCategories = [categories[0], categories[3], categories[6]];
 
 const SideBar = ({ selectedCategory, onCategoryClick }: Props) => {
   return (
-    <VStack w={"80px"} h={"calc(100vh - 55px)"}>
+    <VStack w={"80px"} h={"calc(100vh - 95px)"} marginTop={"55px"}>
       {sideBarCategories.map((c) => (
         <VStack
           _hover={{

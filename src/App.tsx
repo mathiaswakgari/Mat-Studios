@@ -38,14 +38,12 @@ function App() {
           </GridItem>
           <Show above="lg">
             <GridItem area={"sidebar"}>
-              <Box>
-                <SideBar
-                  selectedCategory={category}
-                  onCategoryClick={(category: string) =>
-                    dispatch({ type: "SET", categroy: category })
-                  }
-                />
-              </Box>
+              <SideBar
+                selectedCategory={category}
+                onCategoryClick={(category: string) =>
+                  dispatch({ type: "SET", categroy: category })
+                }
+              />
             </GridItem>
           </Show>
           <GridItem
