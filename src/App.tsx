@@ -65,6 +65,8 @@ function App() {
             alignItems={"center"}
             display={"flex"}
             justifyContent={"center"}
+            borderTop={"1px"}
+            borderTopColor={color.hoverColor}
           >
             <Text
               fontSize={{ base: "xs", md: "sm" }}
