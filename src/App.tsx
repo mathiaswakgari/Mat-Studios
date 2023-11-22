@@ -3,7 +3,7 @@ import "./App.css";
 import NavBar from "./components/NavBar";
 import SideDrawer from "./components/SideDrawer";
 import SideBar from "./components/SideBar";
-import { Box, Grid, GridItem, Show, Text } from "@chakra-ui/react";
+import { Grid, GridItem, Show, Text } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import color from "./color";
 import categoryReducer from "./reducers/categoryReducer";
