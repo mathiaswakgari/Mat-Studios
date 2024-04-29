@@ -73,7 +73,7 @@ function App() {
               textAlign={"center"}
               color={color.textColor}
             >
-              ©2023 Mathias Wakgari™️. All rights reserved.
+              ©2024 Mathias Wakgari™️. All rights reserved.
             </Text>
           </GridItem>
         </Grid>
